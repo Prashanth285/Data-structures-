@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <malloc.h>
+struct node {
+    int data;
+    struct node* next;
+}
+ *head = NULL,*p,*t,*newnode;
+void create () 
+{
+    int n,i,ele;
+    printf("enter the size of SLL:");
+    scanf("%d",&n);
+    for(i=1;i<n;i++)
+    {
+        printf("enter the elements:");
+        scanf("%d",&ele);
+        newnode=(struct node*) malloc (sizeof(struct node));
+        newnode->data=ele;
+        newnode->next=NULL;
+        if(head==NULL)
+        {
+            head=newnode;
+            p=newnode;
+        }
+        else
+        {
+            for(p=head;p->next=NULL;p=p->next)
+            p->next=newnode;
+            p=newnode;
+        }
+    }
+}

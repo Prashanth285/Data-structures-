@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+
+int findMinimum(int arr[], int n) {
+    int min = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+    return min;
+}
+
+
+int findMaximum(int arr[], int n) {
+    int max = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+
+float averageMinMax(int arr[], int n) {
+    int min = findMinimum(arr, n);
+    int max = findMaximum(arr, n);
+    return (float)(min + max) / 2;
+}
+
+int main() {
+    int inputArray[] = {5, 12, 8, 20, 4};
+    int n = sizeof(inputArray) / sizeof(inputArray[0]);
+
+    float avgMinMax = averageMinMax(inputArray, n);
+
+    printf("The average of the minimum and maximum numbers in the array is: %.2f\n", avgMinMax);
+
+    return 0;
+}

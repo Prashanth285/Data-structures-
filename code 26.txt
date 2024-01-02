@@ -1,0 +1,7 @@
+printf("Hello, World!\n");
+    
+    char inputString[] = "Welcome to C programming.";
+    printf("%s\n", inputString);
+    
+    return 0;
+}

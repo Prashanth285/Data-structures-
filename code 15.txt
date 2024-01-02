@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#define size 100
+int top=-1,stk[size];
+void push(int x){
+    top=top+1;
+    stk[top]=x;
+}
+int pop(){
+    return stk[top--];
+}
+int main(){
+    int i,n,op1,op2;
+    char e[100],op;
+    printf("enter a expression: ");
+    scanf("%s",e);
+    n=strlen(e);
+    for(i=0;i<n;i++){
+        if(e[i]>='1'&&e[i]<='9'){
+            push(e[i]-48);
+        }
+        else{
+            op=e[i];
+            op2=pop();
+            op1=pop();
+            switch (op){
+                case '+':
+                push(op1+op2);
+                break;
+                case '-':
+                push(op1-op2);
+                break;
+                case '*':
+                push(op1*op2);
+                break;
+                case '/':
+                push(op1/op2);
+                break;
+            }
+        }
+    }
+    printf("%d\t",stk[top]);
+    return 0;
+}
